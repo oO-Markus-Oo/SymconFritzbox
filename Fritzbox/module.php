@@ -79,10 +79,16 @@ class Fritzbox extends IPSModule
         
         $speedDownstream = $this->RegisterVariableString("speed_downstream", "Geschwindigkeit Download");
         IPS_SetIcon($speedDownstream, "HollowArrowDown");
+
+        $speedDownstreamINT = $this->RegisterVariableInteger("speed_downstream_int", "Geschwindigkeit Download");
+        IPS_SetIcon($speedDownstreamINT, "HollowArrowDown");		
         
         $speedUpstream = $this->RegisterVariableString("speed_upstream", "Geschwindigkeit Upload");
         IPS_SetIcon($speedUpstream, "HollowArrowUp");
-        
+                
+        $speedUpstreamINT = $this->RegisterVariableInteger("speed_upstream_int", "Geschwindigkeit Upload");
+        IPS_SetIcon($speedUpstreamINT, "HollowArrowUp");
+		
         $statusInternetConnection = $this->RegisterVariableBoolean("status_internet_connection", "Internet Status");
         IPS_SetVariableCustomProfile($statusInternetConnection, "FBX.InternetState");
         SetValue($statusInternetConnection, false);
@@ -623,7 +629,9 @@ class Fritzbox extends IPSModule
         }
         
         SetValue($this->GetIDForIdent("speed_upstream"), round($connInfo['NewLayer1UpstreamMaxBitRate']/1000000, 1)." MBit/s");
+		SetValue($this->GetIDForIdent("speed_upstream_int"), round($connInfo['NewLayer1UpstreamMaxBitRate']/1000000, 1));
         SetValue($this->GetIDForIdent("speed_downstream"), round($connInfo['NewLayer1DownstreamMaxBitRate']/1000000, 1)." MBit/s");
+		SetValue($this->GetIDForIdent("speed_downstream_int"), round($connInfo['NewLayer1DownstreamMaxBitRate']/1000000, 1));
         SetValue($this->GetIDForIdent("externalip"), $connInfo['ExternalIPAddress']);        
     }
     
