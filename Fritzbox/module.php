@@ -269,7 +269,7 @@ class Fritzbox extends IPSModule
 
         //$this->UpdateCallList();
         $this->UpdateConnectionInfos();
-        $this->UpdateWifiInfos();
+        //$this->UpdateWifiInfos();
     }
     
     public function GetMessageAsBinary()
