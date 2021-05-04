@@ -952,8 +952,8 @@ class Fritzbox extends IPSModule
         $client = new SoapClient(
             null,
             array(
-                'location'	=> "http://".IPS_GetProperty($this->InstanceID, "FBX_IP").":49000/upnp/control/wancommonifconfig1",
-                'uri'		=> "urn:dslforum-org:service:WANCommonInterfaceConfig:1",
+		'location'	=> "http://".IPS_GetProperty($this->InstanceID, "FBX_IP").":49000/igdupnp/control/WANCommonIFC1",
+                'uri'		=> "urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1",
                 'noroot' 	=> True,
                 'login'     => IPS_GetProperty($this->InstanceID, "FBX_USERNAME"),
                 'password'  => IPS_GetProperty($this->InstanceID, "FBX_PASSWORD")
