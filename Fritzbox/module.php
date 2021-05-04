@@ -267,7 +267,7 @@ class Fritzbox extends IPSModule
             return false;
         }
 
-        $this->UpdateCallList();
+        //$this->UpdateCallList();
         $this->UpdateConnectionInfos();
         $this->UpdateWifiInfos();
     }
